@@ -6,11 +6,7 @@ class Collection
       end
   end
 
-  def things
-    @things
-  end
-
-  def thing_types
+  def things_types
     @things.map{|thing| thing.type}.uniq
   end
 
@@ -18,8 +14,11 @@ class Collection
     @things.select{|thing| thing.type == type}
   end
 
-  def fit_things(type, degree)
-    things_same_type(type).select{|thing| thing.is_fit?(degree)}.sample
+  def fit_things(degree)
+    things_types.map{|type| things_same_type(type).select{|thing| thing.is_fit?(degree)}.
+      sample}.compact
   end
-
 end
+
+
+

@@ -8,15 +8,14 @@ collection = Collection.new(data_path)
 puts "Сколько градусов за окном? (можно с минусом)"
 user_input = STDIN.gets.to_i
 
-puts
-puts "Предлагаем сегодня надеть:"
-puts
+list =  collection.fit_things(user_input)
 
-
-collection.thing_types.each do |type|
-  puts type
-  fit = collection.fit_things(type, user_input)
-
-  puts fit unless fit == nil
+if list.empty?
+  puts
+  puts "К сожалению, ничего не можем посоветовать."
+else
+  puts
+  puts "Предлагаем сегодня надеть:"
+  puts
+  puts list
 end
-
