@@ -13,8 +13,12 @@ class Thing
   def type
     @type
   end
+
   def wheather_range
     @wheather_range
+  end
+
+  def is_fit?
   end
 
 end
