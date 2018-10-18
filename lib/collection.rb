@@ -1,6 +1,8 @@
 #Класс содержит коллекцию экземпляров одежды и
 #методы для работы с ними
 class Collection
+  attr_reader :things
+
   def initialize(file_path)
     @things =
       Dir["#{file_path}/*.txt"].map do |file|

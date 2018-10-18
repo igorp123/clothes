@@ -1,6 +1,6 @@
 #Класс содержит информацию о каждой вещи
 class Thing
-  attr_reader :type, :wheather_range
+  attr_reader :name, :type, :wheather_range
 
   def initialize(file)
     file = File.readlines(file, encoding: 'UTF-8', chomp: true)
