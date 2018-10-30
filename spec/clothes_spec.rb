@@ -33,8 +33,9 @@ describe Collection do
 
   it 'returns names of fit closes' do
     collection = Collection.new("spec/fixtures/")
-    expect(%w(Бейсболка Кепка).include? collection.fit_things(5)[0].name).to be_truthy
-    expect(%w(Брюки Джинсы).include? collection.fit_things(5)[1].name).to be_truthy
-    expect(%w(Кроссовки).include? collection.fit_things(5)[2].name).to be_truthy
+    thing = collection.fit_things(5)
+    expect(%w(Бейсболка Кепка).include? thing[0].name).to be_truthy
+    expect(%w(Брюки Джинсы).include? thing[1].name).to be_truthy
+    expect(%w(Кроссовки).include? thing[2].name).to be_truthy
   end
 end

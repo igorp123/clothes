@@ -25,4 +25,15 @@ class Collection
     things_types.map{|type| things_same_type(type).select{|thing| thing.is_fit?(degree)}.
       sample}.compact
   end
+
+  #Возвращает текущую погоду с сайта метеосервис
+  def self.current_temperature(city_index)
+    url = "https://xml.meteoservice.ru/export/gismeteo/point/#{city_index}.xml"
+
+    response = Net::HTTP.get_response(URI.parse(url))
+
+    doc = REXML::Document.new(response.body)
+
+    doc.root.elements['//TEMPERATURE'].attributes['max'].to_i
+  end
 end
