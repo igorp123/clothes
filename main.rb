@@ -5,11 +5,13 @@ require_relative 'lib/collection'
 require 'net/http'
 require 'rexml/document'
 
+CITY_INDEX = 37
+
 data_path = "#{File.dirname(__FILE__)}/data"
 
 collection = Collection.new(data_path)
 
-temperature = Collection.current_temperature(37)
+temperature = Collection.current_temperature(CITY_INDEX)
 
 list = collection.fit_things(temperature)
 
